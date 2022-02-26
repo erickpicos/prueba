@@ -13,8 +13,10 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.set(0, 0, 10);
 camera.lookAt(0, 0, 0);
 
+var div = document.getElementById('threed');
+
 var renderer = new THREE.WebGLRenderer({antialias:false});
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(div.offsetWidth, div.offsetHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 document.getElementById('threed').appendChild(renderer.domElement);
 renderer.gammaInput = false; renderer.gammaOutput = false;
@@ -346,7 +348,7 @@ function onWindowResize( event ) {
 
   camera.updateProjectionMatrix();
 //  camera.lookAt( scene.position );
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize( div.offsetWidth, div.offsetHeight);
   renderer.render( scene, camera );
 }
 onWindowResize();
